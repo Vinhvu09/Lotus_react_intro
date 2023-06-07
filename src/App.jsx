@@ -80,6 +80,9 @@ function App() {
     const progressBar = document.getElementById("progress-bar");
     loaddingManager.onProgress = function (url, loaded, total) {
       progressBar.value = (loaded / total) * 100;
+      if (progressBar.value === 100) {
+        animationRotation();
+      }
     };
 
     const progressBarContainer = document.querySelector(
@@ -243,7 +246,7 @@ function App() {
     }
 
     let timer, timer2;
-    animationRotation();
+
     const clock = new THREE.Clock();
 
     // Animation loop
